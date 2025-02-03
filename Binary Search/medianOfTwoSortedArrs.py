@@ -4,14 +4,17 @@ class Solution:
         total = len(nums1) + len(nums2)
         half = total // 2
 
+        # Ensure A is the shorter array
         if len(B) < len(A):
             A, B = B, A
 
+        # Binary search
         l, r = 0, len(A) - 1
         while True:
             i = (l + r) // 2
             j = half - i - 2
 
+            # god knows what's going on here
             Aleft = A[i] if i >= 0 else float("-infinity")
             Aright = A[i + 1] if (i + 1) < len(A) else float("infinity")
             Bleft = B[j] if j >= 0 else float("-infinity")
