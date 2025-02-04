@@ -10,10 +10,18 @@ class Solution:
         
         # find the middle of the linked list
         # to partition them
-        mid = end = head
-        while end and end.next:
-            mid = mid.next
-            end = end.next.next
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
-        print(head, mid, end)
+        # beginning of the second half of the LL
+        second = slow.next
+        prev = slow.next = None # split the LL
 
+        # reverse the second half of the LL
+        while second:
+            tmp = second.next
+            second.next = prev
+            prev = second
+            second = tmp
