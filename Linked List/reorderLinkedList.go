@@ -7,6 +7,7 @@ package main
  *     Next *ListNode
  * }
  */
+
 func reorderList(head *ListNode) {
 	var slow, fast *ListNode = head, head
 
