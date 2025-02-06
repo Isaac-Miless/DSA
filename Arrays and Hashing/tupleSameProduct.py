@@ -10,7 +10,6 @@ class Solution(object):
         
         for i in range(n):
             for j in range(i+1, n):
-                if nums[i] == nums[j]: continue
                 product = nums[i] * nums[j]
                 count += productCount.get(product, 0)
                 productCount[product] = productCount.get(product, 0) + 1
