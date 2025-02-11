@@ -6,9 +6,23 @@
 
 class Solution:
     def addTwoNumbers(self, l1: 'Optional[ListNode]', l2: 'Optional[ListNode]') -> 'Optional[ListNode]':
-        head = l1
-        while l1 and l2:
-            l1.val += l2.val
-            l1 = l1.next
-            l2 = l2.next
-        return head
+        """
+        :type l1: Optional[ListNode]
+        :type l2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        newLL = ListNode(0)
+        current = newLL
+        carry = 0
+        
+        while l1 or l2 or carry:
+            if l1:
+                carry += l1.val
+                l1 = l1.next
+            if l2:
+                carry += l2.val
+                l2 = l2.next
+            current.next = ListNode(carry % 10)
+            current = current.next
+            carry = carry // 10
+        return newLL.next
