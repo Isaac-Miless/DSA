@@ -31,7 +31,6 @@ class NumberContainers(object):
         return -1
 
 
-
 # Your NumberContainers object will be instantiated and called as such:
 # obj = NumberContainers()
 # obj.change(index,number)
