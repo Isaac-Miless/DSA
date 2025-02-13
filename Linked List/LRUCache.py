@@ -1,34 +1,43 @@
 class LRUCache:
+    
+    # Suboptimal -- will explore properly later!
 
     def __init__(self, capacity: int):
         """
         :type capacity: int
         """
-        self.keyToAddr = {}
+        self.cache = []
         self.capacity = capacity
-        
-        self.left, self.right = Node(0), Node(0)
-        self.left.next, self.right.prev = self.right, self.left
 
     def get(self, key: int) -> int:
         """
         :type key: int
         :rtype: int
         """
-        addr = self.keyToAddr.get(key, -1)
-        if addr == -1:
-            return -1
+        for i in range(len(self.cache)):
+            if self.cache[i][0] == key:
+                tmp = self.cache.pop(i)
+                self.cache.append(tmp)
+                return tmp[1]
+        return -1
         
-        pass
-        
-
     def put(self, key: int, value: int) -> None:
         """
         :type key: int
         :type value: int
         :rtype: None
         """
-        pass
+        for i in range(len(self.cache)):
+            if self.cache[i][0] == key:
+                tmp = self.cache.pop(i)
+                tmp[1] = value
+                self.cache.append(tmp)
+                return
+                
+        if len(self.cache) == self.capacity:
+            self.cache.pop(0)
+            
+        self.cache.append([key,value])
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
