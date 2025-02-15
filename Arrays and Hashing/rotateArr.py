@@ -32,11 +32,6 @@ class Solution(object):
         reverse(nums, k, n-1)
         
         return nums
-    
-
-
-# Time complexity: O(n)
-# Space complexity: O(n)
 
 nums = [1,2,3,4,5,6,7]
 k = 3
