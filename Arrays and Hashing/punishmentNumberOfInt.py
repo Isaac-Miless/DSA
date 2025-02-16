@@ -5,9 +5,7 @@ class Solution(object):
         :rtype: int
         """
         # --------------------------------
-        # O(n) time complexity
-        # O(1) space complexity
-        res = 0
+        # res = 0
         
         # def getPunishment(i):
         #     sqr = i * i
