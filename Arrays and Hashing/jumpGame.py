@@ -6,21 +6,13 @@ class Solution(object):
         """
         # some dynamic programming solution here
         n = len(nums)
-        memo = {}
+        idx = 0
         
-        def compute(i):
-            if i >= n-1: return True
-            if nums[i] == 0: return False
-            if i in memo: return memo[i]
-            
-            for j in range(i+1, min(i + nums[i], n-1)+1):
-                if compute(j):
-                    memo[i] = True
-                    return True
-            memo[i] = False
-            return False
+        for i in range(n):
+            if idx < i: return False
+            idx = max(idx, i + nums[i])
         
-        return compute(0)
+        return True
         
 
 print(Solution().canJump([2,3,1,1,4])) # True
