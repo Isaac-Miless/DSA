@@ -15,19 +15,13 @@ class Solution(object):
         
         # return True
         
-        if len(nums) <= 1: return 0
-        
-        n = len(nums)
-        idx = 0
-        steps = 0
-
-        for i in range(n):
-            for j in range(0,nums[i]+1):
-                idx = max(idx, i + j)
-            steps += 1
-            if idx >= n-1: return steps
-        
-        return steps
+        res, curr, furthest = 0, 0, 0
+        for i in range(len(nums) - 1):
+            furthest = max(furthest, i + nums[i])
+            if i == curr:
+                res += 1
+                curr = furthest
+        return res
 
 print(Solution().jump([2,3,1,1,4])) # 2
 print(Solution().jump([2,3,0,1,4])) # 2
