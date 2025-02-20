@@ -1,7 +1,10 @@
+import random as rand
+
 class RandomizedSet(object):
 
     def __init__(self):
-        pass
+        # O(1) time
+        self.data = []
         
 
     def insert(self, val):
@@ -9,6 +12,10 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
+        # O(1) time
+        if val in self.data: return False
+        self.data.append(val)
+        return True
         
 
     def remove(self, val):
@@ -16,12 +23,20 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
+        # O(n) time :(
+        if val not in self.data: return False
+        self.data.remove(val)
+        return True
         
 
     def getRandom(self):
         """
         :rtype: int
         """
+        # O(1) time
+        if not self.data: return -1
+
+        return rand.choice(self.data)
         
 
 
