@@ -13,20 +13,20 @@ class MyStack(object):
         :rtype: None
         """
         self.q1.append(x)
+        for _ in range(len(self.q1) - 1):
+            self.q1.append(self.q1.popleft())
 
     def pop(self):
         """
         :rtype: int
         """
-        return self.q1.pop()
+        return self.q1.popleft()
 
     def top(self):
         """
         :rtype: int
         """
-        temp = self.q1.pop()
-        self.q1.append(temp)
-        return temp
+        return self.q1[0]
 
     def empty(self):
         """

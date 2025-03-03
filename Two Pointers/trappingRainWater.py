@@ -14,7 +14,6 @@ class Solution:
                 r -= 1
         
         return waterTrapped
-            
 
 # Brute Force: O(n^2)
 # Loop through the array and for each element, find the maximum height on the left and right side of the element.
