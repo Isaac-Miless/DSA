@@ -12,18 +12,23 @@ class Solution(object):
         :type root: Node
         :rtype: List[int]
         """
-        # if root is None: return
+        if root is None: return []
         
         res = []
-        # toTraverse = [root]
-        self.traverse(root,res)
+        toTraverse = [root]
+        # self.traverse(root,res)
+        
+        while toTraverse:
+            temp = toTraverse.pop()
+            res.append(temp.val)
+            toTraverse.extend(temp.children[::-1])
         
         return res
         
-    def traverse(self,root,res):
-        if root is None: return
-        res.append(root.val)
+    # def traverse(self,root,res):
+    #     if root is None: return
+    #     res.append(root.val)
         
-        if root.children:
-            for child in root.children:
-                self.traverse(child, res)
+    #     if root.children:
+    #         for child in root.children:
+    #             self.traverse(child, res)
