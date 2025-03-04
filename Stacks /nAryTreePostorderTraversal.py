@@ -12,14 +12,8 @@ class Solution(object):
         :type root: Node
         :rtype: List[int]
         """
-        if root is None: return []
         res = []
-        # toTraverse = [root]
-        
-        # while toTraverse:
-        #     temp 
         self.traverse(root,res)
-            
         return res
 
     def traverse(self,root,res):
