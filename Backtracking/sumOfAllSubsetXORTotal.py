@@ -4,13 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        def backtrack(self, subset, res):
-            pass
-
-        subsets = []
-        res = 0
+        def backtrack(index, path):
+            if index == len(nums):
+                self.res += path
+                return
+            backtrack(index + 1, path ^ nums[index])
+            backtrack(index + 1, path)
         
-        self.backtrack(subsets, res)
-        
-
-        return res
+        self.res = 0
+        backtrack(0, 0)
+        return self.res
