@@ -6,7 +6,7 @@ class Solution:
 
         def dfs(i):
             if i >= len(nums): # null pointer
-                res.append(subset.copy())
+                res.append(subset[:])
                 return
             
             # include current number in subset
